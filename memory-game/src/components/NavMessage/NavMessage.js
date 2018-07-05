@@ -13,10 +13,12 @@ class NavMessage extends Component {
         const newState = { animating: true };
         if (score === 0 && topScore === 0) {
             newState.message = "";
-        } else if (score === 0 && topScore > 0) {
+        } else if (score === 0 && 12 > topScore > 0) {
             newState.message = "incorrect";
-        } else {
+        } else if {
             newState.message = "correct";
+        } else {
+            newState.message = "YOU SET THE HIGHEST OF SCORES!!!!! xD";
         }
         this.setState(newState, () => 
             setTimeout(() => this.setState({ animating: false }), 500)
