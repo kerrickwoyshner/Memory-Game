@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import Nav from "../Nav";
 import Header from "../Header";
 import Container from "../Container";
@@ -57,7 +57,7 @@ class Game extends Component {
         letguessedCorrectly = false;
         const newData = this.state.data.map(item => {
             const newItem = { ...item };
-            if (newItem.id === id ) {
+            if (newItem.id === id) {
                 if (!newItem.clicked) {
                     newItem.clicked = true;
                     guessedCorrectly = true;
@@ -66,5 +66,29 @@ class Game extends Component {
             return newItem;
         });
         guessedCorrectly
+            ? this.handleCorrectGuess(newData)
+            : this.handleIncorrectGuess(newData);
+    };
+
+    render() {
+        return (
+            <div>
+                <Nav score={this.state.score} topScore={this.state.topScore} />
+                <Header />
+                <Container>
+                    {this.state.data.map(item => (
+                        <ClickItem
+                            key={item.id}
+                            id={item.id}
+                            shake={!this.state.score && this.state.topScore}
+                            handleClick={this.handleItemClick}
+                            image={item.image}
+                        />
+                    ))}
+                </Container>
+            </div>
+        );
     }
 }
+
+export default Game;
