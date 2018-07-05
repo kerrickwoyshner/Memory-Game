@@ -15,10 +15,10 @@ class NavMessage extends Component {
             newState.message = "";
         } else if (score === 0 && 12 > topScore > 0) {
             newState.message = "incorrect";
-        } else if {
-            newState.message = "correct";
-        } else {
+        } else if (score === 12) {
             newState.message = "YOU SET THE HIGHEST OF SCORES!!!!! xD";
+        } else {
+            newState.message = "correct";
         }
         this.setState(newState, () => 
             setTimeout(() => this.setState({ animating: false }), 500)
@@ -31,6 +31,8 @@ class NavMessage extends Component {
                 return "You guessed correctly!";
             case "incorrect":
                 return "You guessed incorrectly!";
+            case "YOU SET THE HIGHEST OF SCORES!!!!! xD":
+                return "YOU SET THE HIGHEST OF SCORES!!!!! xD";
             default:
                 return "Click an image to begin!";
         }
