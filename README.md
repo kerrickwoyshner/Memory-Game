@@ -1,2 +1,2 @@
 # Memory-Game
-Test your memory with this Concentration-inspired game built with React!
+Test your memory with this fun, Concentration-inspired game built with React!
